@@ -1,11 +1,14 @@
-import { user } from "/src/scripts/services/user.js"
-import { repositories } from "/src/scripts/services/repositories.js"
+import { getUser } from "/src/scripts/services/user.js"
+import { getRepositories } from "/src/scripts/services/repositories.js"
+
+import { user } from "/src/scripts/objects/user.js"
+import { screen } from "/src/scripts/objects/screen.js"
 
 
 // Coloca um ouvinte no botão e chama a função getUserProfile quando o mesmo é clicado.
 document.getElementById("btn-search").addEventListener("click", () => {
     const userName = document.getElementById("input-search").value
-    getUserProfile(userName)
+    getUserData(userName)
 })
 
 // Coloca um ouvinte no input, e quando o usuário clicar com a tecla Enter, chama a função getUserProfile.
@@ -14,40 +17,18 @@ document.getElementById("input-search").addEventListener("keyup", (e) => {
     const key = e.wich || e.keyCode
     const isEnterKeyPressed = key === 13
     if (isEnterKeyPressed) {
-        getUserProfile(userName)
+        getUserData(userName)
     }
 })
 
 // Função para pegar as informações do usuário na API e criar um trecho de HTML no DOM.
-function getUserProfile(userName) {
+async function getUserData(userName) {
 
-    user(userName).then(userData => {
-        let userInfo = `<div class="info">
-                            <img src="${userData.avatar_url}" alt="Foto do perfil do usuário" />
-                            <div class="data"
-                                <h1>${userData.name ?? "Não possui nome cadastrado 😢"}</h1>
-                                <p>${userData.bio ?? "Não possui bio cadastrada 😢"}</p>
-                            </div>
-                        </div>`
+    const userResponse = await getUser(userName)
+    const repositoriesResponse = await getRepositories(userName)
 
-        document.querySelector(".profile-data").innerHTML = userInfo
+    user.setInfo(userResponse)
+    user.setRepositories(repositoriesResponse)
 
-        getUserRepositories(userName)
-    })
-}
-
-// Função para pegar as informações do usuário na API e criar um trecho de HTML no DOM dos repositórios.
-function getUserRepositories(userName) {
-    repositories(userName).then(reposData => {
-        let repositoriesItens = ""
-
-        reposData.forEach(repo => {
-            repositoriesItens += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`
-        })
-
-        document.querySelector(".profile-data").innerHTML += `<div class="repositories section">
-                                                                <h2>Repositórios</h2>
-                                                                <ul>${repositoriesItens}</ul>
-                                                              </div>`
-    })
+    screen.renderUser(user)
 }

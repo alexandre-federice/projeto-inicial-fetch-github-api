@@ -1,3 +1,5 @@
+// Renderiza as informações na tela, obtidas pela API do GitHub.
+
 const screen = {
     userProfile: document.querySelector(".profile-data"),
     renderUser(user) {

@@ -1,4 +1,4 @@
-import { baseUrl, repositoriesQuantity } from "/src/scripts/variables.js"
+import { baseUrl, repositoriesQuantity } from "../variables.js"
 
 // Função assíncrona para chamar o EndPoint da API do GitHub dos repositórios do usuário.
 async function getRepositories(userName) {

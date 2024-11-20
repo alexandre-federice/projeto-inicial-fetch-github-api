@@ -1,13 +1,13 @@
 // Funções para buscar dados da API do GitHub
-import { getUser } from "/src/scripts/services/user.js"
+import { getUser } from "./services/user.js"
 
-import { getRepositories } from "/src/scripts/services/repositories.js"
+import { getRepositories } from "./services/repositories.js"
 
 // Objeto que armazena e organiza dados do usuário
-import { user } from "/src/scripts/objects/user.js"
+import { user } from "./objects/user.js"
 
 // Objeto responsável por renderizar os dados no DOM.
-import { screen } from "/src/scripts/objects/screen.js"
+import { screen } from "./objects/screen.js"
 
 
 // Coloca um ouvinte no botão e chama a função getUserData quando o mesmo é clicado.

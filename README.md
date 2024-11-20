@@ -27,7 +27,7 @@ This project is a web application that uses the GitHub API to fetch and display 
 
 ## 📂 Project Structure
 
-```
+```plaintext
 ├── src
 │   ├── css
 │   │   ├── reset.css            # Global style reset
@@ -96,9 +96,19 @@ This project is under the [MIT License](LICENSE). You are free to use, modify, a
 
 ## 🧑‍💻 Author
 
-Made with 🖤 by **Alexandre Federice** 
+Made with 🖤 by **Alexandre Federice**
 - [GitHub](https://github.com/alexandre-federice)
 - [LinkedIn](https://www.linkedin.com/in/pedro-alexandre-federice-soares/)
+```
+
+---
+
+### **3. O que foi ajustado?**
+1. **Títulos com emojis:** Mantidos, mas reorganizados para garantir compatibilidade.
+2. **Quebras de linha:** Adicionados espaços entre elementos para evitar renderização incorreta.
+3. **Blocos de código:** Especificada a linguagem em blocos de exemplo (`bash`, `plaintext`, etc.).
+
+Suba novamente esta versão no GitHub, e se ainda houver problemas, compartilhe detalhes para refinarmos mais. 😊
 
 ---
 ---

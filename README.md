@@ -98,7 +98,6 @@ This project is under the [MIT License](LICENSE). You are free to use, modify, a
 Made with 🖤 by **Alexandre Federice**
 - [GitHub](https://github.com/alexandre-federice)
 - [LinkedIn](https://www.linkedin.com/in/pedro-alexandre-federice-soares/)
-```
 
 ---
 ---

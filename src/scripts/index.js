@@ -8,6 +8,7 @@ import { user } from "./objects/user.js"
 
 // Objeto responsável por renderizar os dados no DOM.
 import { screen } from "./objects/screen.js"
+import { getEvents } from "./services/events.js"
 
 
 // Coloca um ouvinte no botão e chama a função getUserData quando o mesmo é clicado.
@@ -39,17 +40,19 @@ function validateEmptyInput(userName) {
 // Função para gerenciar as chamadas e interações, e renderizar os dados no DOM.
 async function getUserData(userName) {
 
-    const userResponse = await getUser(userName)
+    const userResponse = await getUser(userName);
 
     if (userResponse.message === "Not Found") {
-        screen.renderNotFound()
+        screen.renderNotFound();
         return
     }
 
-    const repositoriesResponse = await getRepositories(userName)
+    const repositoriesResponse = await getRepositories(userName);
+    const eventResponse = await getEvents(userName);
 
-    user.setInfo(userResponse)
-    user.setRepositories(repositoriesResponse)
+    user.setInfo(userResponse);
+    user.setRepositories(repositoriesResponse);
 
-    screen.renderUser(user)
+    screen.renderUser(user);
+    screen.renderEvents(eventResponse);
 }

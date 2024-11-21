@@ -132,8 +132,10 @@ main {
 
 .container .profile-data .repositories ul {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 100px;
 }
 
 .container .profile-data .repositories ul li a {
@@ -152,6 +154,11 @@ main {
 
 .container .profile-data.hide {
   display: none;
+}
+
+.container .profile-data .repositories.section .itens {
+  display: flex;
+  gap: 10px
 }
 
 @media (max-width: 1280px) {
